@@ -1,3 +1,3 @@
 # docker-learning
 
-Aprendizado do docker
+Aprendizado de docker
