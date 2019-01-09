@@ -135,6 +135,43 @@ Registry: Repositório de imagens
 ```
   *Remove imagens paradas.*
 
+# Background docker container run
+
+1. Verifica se a imagem está no cache local de imagens;
+2. Verifica repositórios remoto pela imagem;
+3. Baixa a versão da imagem solicitada;
+4. Cria um novo container com a imagem e prepara para iniciar;
+5. Fornece um ip virtual dentro da rede privada da engine do docker;
+6. Abre a porta 12346 do localhost para porta 80 do container;
+7. Inicia o container usando **CMD** do Docker file
+
+
+# Homework 1
+
+  Executar simultaneamente as seguintes imagens, nas portas indicadas e adicionar o nome para cada container:
+  - nginx (85:80)
+  - mysql (8580:80)
+  - httpd(apache) (3306:3306)
+
+Ao iniciar o container do mysql passar uma variável de ambiente **MYSQL_RANDOM_ROOT_PASSWORD=yes** , através do comando --env. Executar *docker container logs* no mysql para achar o password random gerado.
+
+Após a realização da atividade parar os container e remover
+
+[Docker Documentation](https://docs.docker.com/)
+
+## Resolução
+
+```
+1. docker container run --name nginx --publish 85:80 --detach nginx
+
+2. docker container run --name mysql --publish 8580:80 --detach --env MYSQL_RANDOM_ROOT_PASSWORD=yes mysql
+
+R.:Ohmo6cher7eechoo1ohphohjeixae5ad
+
+3. docker container logs mysql
+
+4. docker container run --name apache --publish 3306:3306 --detach httpd
+````
 
   
   
