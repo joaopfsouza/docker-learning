@@ -173,5 +173,52 @@ R.:Ohmo6cher7eechoo1ohphohjeixae5ad
 4. docker container run --name apache --publish 3306:3306 --detach httpd
 ````
 
+# Commands Docker
+
+#Lista de processos dentro do container
+```
+docker container top
+```
+#Detalha as configurações de um container
+```
+docker container inspect 
+```
+#Mostra a estatistica dos containers
+```
+docker container stats
+```
+#Liberar um prompt dentro do container  
++ -i: iterativo;
++ -t: abre o terminal similar ssh;
++ Command Bash: libera o terminal do container "root user"
+```
+docker container -it [container] [bash]
+```
+
+#Inicia container parado e libera terminal 
++ -i: iterativo;
++ -a: atacha a comunicação com container;
+
+```
+docker container start -ai [container] 
+``` 
+
+#Libera o terminal de um container rodando 
++ -i: iterativo;
++ -t: abre o terminal similar ssh;
++ Command Bash: libera o terminal do container "root user"
   
-  
+```
+docker container exec -it [container] bash
+``` 
+
+#Lista as imagens em cache  
+```
+docker images ls
+``` 
+
+#Atualiza versão de imagem 
+```
+docker pull [image]
+``` 
+
