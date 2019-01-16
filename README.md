@@ -222,3 +222,32 @@ docker images ls
 docker pull [image]
 ``` 
 
+# Docker Networks
+
+Cada container conecta em uma rede virtual privada *"bridge"*
+
+O Deamon configura um host IP por onde os container irão acessar a internet (NAT)
+
+Não é necessário usar "-p" para mapear portas nos containers
+
+É possível atrelar nenhuma ou várias networks para um container
+
+Para utilizar diretamente host ip dá máquina é necessário por --net=host
+
+````
+docker container run -p 80:80 --name webhost -d nginx
+
+docker contianer port webhost
+
+````
+
+Mostra o mapeamento de portas
+````
+docker contianer port webhost
+````
+
+Permite extrair o ip do container
+````
+docker container  inspect --format '{{.NetworkSettings.IPAddress}}' webhost
+
+````
