@@ -222,3 +222,52 @@ docker images ls
 docker pull [image]
 ``` 
 
+# Docker Networks
+
+Iniciar um container nginx com nome webhost e publish (-p host:conatiner) na porta 80
+```
+docker container run -p 80:80 --name webhost -d nginx
+```
+
+Verificar a porta de um container 
+```
+docker container port webhost
+```
+
+Verificar informações de porta do container de formatada
+
+```
+docker container inspect --format '{{ .NetworkSettings.IPAddress }}' webhost
+```
+
+#Lista as redes existentes
+```
+docker network ls
+
+```
+
+#Inspeciona uma rede
+```
+docker network inspect
+
+```
+
+#Cria uma rede
+```
+docker network create --driver
+
+```
+
+#Atacha uma rede em um container
+
+```
+docker network connect
+
+```
+
+#Desatacha uma rede de um container
+
+```
+docker network disconnect
+
+```
